@@ -1,0 +1,12 @@
+language: java
+jdk: oraclejdk8
+
+before_install:
+  - chmod +x ./gradlew
+  - ./gradlew --no-daemon startTestDb createTestDb
+
+install:
+  - ./gradlew --no-daemon assemble
+
+script:
+  - ./gradlew --no-daemon test
